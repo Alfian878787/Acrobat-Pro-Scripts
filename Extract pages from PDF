@@ -1,0 +1,18 @@
+// this script extracts the first 2 pages from a PDF and renames each page with "-page#" at the end
+try {
+  // if page number is greater than 1, loop through and extract all pages until you reach page 2
+  // save file with "-page#" at the end
+  if (this.numPages > 1) {
+      for (var i = 0; i < 2; i++)
+        this.extractPages
+    ({
+          nStart: i,
+          cPath:"/C/Users/rdave/Desktop/extracted/" + this.documentFileName.replace(/.pdf/,"") +"-"+(i+1)+".pdf"
+        });
+      }
+  //if page number is not greater than 1, save file with "-1" at the end
+  else {
+    this.saveAs("/C/Users/rdave/Desktop/extracted/"+ this.documentFileName.replace(/.pdf/,"") + "-1.pdf");
+  }
+}
+catch(e){}
